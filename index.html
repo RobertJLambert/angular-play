@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shopping List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div ng-app="instantSearch" ng-controller="instantSearchController">
-     
-      <form ng-submit="addName()">
+  <div ng-app="instantSearch" ng-controller="instantSearchController">
 
-        <header>
-          <h1>Shopping List</h1>
-        </header>
+    <form ng-submit="addName()">
 
-        <div class="total">
-          Total: <span>{{ total() | currency : "£" }} &nbsp; {{ total()*140 | currency : "‎¥" }}</span>
-        </div>
+      <header>
+        <h1>Shopping List</h1>
+        <p>Select the items you wish to buy from below and see the price tally up. Search is also available. Add and remove any items you wish. </p>
+      </header>
 
-        <div class="bar">
-          <input type="text" ng-model="searchString" placeholder="search in English or Japanese" />
-        </div>
+      <div class="total">
+        Total: <span>{{ total() | currency : "£" }} &nbsp; {{ total()*140 | currency : "‎¥" }}</span>
+      </div>
 
-        <input type="text" ng-model="enteredName">
-        <input type="submit" value="add">
+      <div class="bar">
+        <input type="text" ng-model="searchString" placeholder="search in English or Japanese" />
+      </div>
 
-        <ul>
-          <li ng-repeat="item in items | searchFor:searchString" ng-click="toggleActive(item)" ng-class="{active:item.active}">
-            {{ item.name }} <span>{{ item.price | currency : "£" }} &nbsp; {{ item.price*140 | currency : "‎¥" }}</span>
+      <input type="text" ng-model="enteredName">
+      <input type="submit" value="add">
+
+      <ul>
+        <li ng-repeat="item in items | searchFor:searchString" ng-click="toggleActive(item)" ng-class="{active:item.active}">
+          {{ item.name }} <span>{{ item.price | currency : "£" }} &nbsp; {{ item.price*140 | currency : "‎¥" }}</span>
           <a href="" ng-click="removeName(name)">remove</a>
-          </li>
-        </ul>
+        </li>
+      </ul>
 
-      </form>
-    </div>
+    </form>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
 
-  </body>
+</body>
 </html>
