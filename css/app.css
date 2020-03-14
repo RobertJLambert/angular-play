@@ -15,6 +15,9 @@ a, a:visited {
 a:hover {
 	text-decoration: none;
 }
+p {
+  color: #fff;
+}
 section, footer, header, aside, nav {
 	display: block;
 }
